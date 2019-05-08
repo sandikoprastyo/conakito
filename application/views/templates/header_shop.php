@@ -15,6 +15,7 @@
     <link href="<?= base_url('assets/scss/mdb.scss'); ?>" rel="stylesheet">
     <link href="<?= base_url('assets/css/bootstrap.min.css'); ?>" rel="stylesheet">
     <link href="<?= base_url('assets/css/mdb.min.css'); ?>" rel="stylesheet">
+    <link href="<?= base_url('assets/css/style.css'); ?>" rel="stylesheet">
     <script src="<?= base_url('assets/js/mdb.min.js'); ?>" charset="utf-8"></script>
     <link rel="icon" href="<?= base_url('https://pbs.twimg.com/profile_images/808258644038983680/5OOAp25v_400x400.jpg'); ?>">
     <title><?php echo $judul; ?></title>
@@ -46,7 +47,7 @@
             </ul>
             <ul class="nav">
                 <li class="nav-item">
-                    <i class="fa fa-shopping-cart justify-content-end" data-toggle="modal" data-target=".bd-example-modal-lg" style="font-size:20px;color:white"></i>
+                    <i class="fa fa-shopping-cart justify-content-end" data-toggle="modal" data-target=".bd-example-modal-lg" style="font-size:20px;color:white"><span class="badge badge-light mt-1">0</span></i>
                     <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
                         <div class="modal-dialog modal-lg">
                             <div class="modal-content">

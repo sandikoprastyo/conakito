@@ -1,5 +1,5 @@
 <!-- Page Content -->
-<h1 class="my-2 text-center"><strong>Shop Coffee Beans Konakito</strong></h1>
+<h1 class="mt-5 text-center"><strong>Shop Coffee Beans Konakito</strong></h1>
 
 
 <!-- <div class="list-group">
@@ -73,3 +73,11 @@
         <!-- end looping -->
     </div>
 </div>
+<script>
+    $(document).ready(function() {
+                $(#show).click(function()) {
+                    $("span").after("0 ++ < 1 ");
+                }
+
+            }
+</script>
