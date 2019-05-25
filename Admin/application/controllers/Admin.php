@@ -38,7 +38,8 @@ class admin extends CI_Controller
     {
         $where = array('id' => $id);
         $this->M_reservation->delete($where, 'reservation');
-        redirect('admin/dataReservation', 'refresh');
+        $this->session->set_flashdata('flash', 'Dihapus!');
+        redirect('admin/dataReservation');
     }
 
 

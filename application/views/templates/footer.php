@@ -110,7 +110,7 @@
 
     <!-- Copyright -->
     <div class="footer-copyright text-center py-3">© 2019 Copyright:
-        <a href="http://localhost/conakito/"> Konakitocom</a>
+        <a href="http://localhost/conakito/"> Konakito.com</a>
     </div>
     <!-- Copyright -->
 

@@ -46,15 +46,15 @@
 
 
       <li class="nav-item">
-        <a class="nav-link" href="charts.html">
+        <a class="nav-link" href="<?= base_url('produk/dataProduk'); ?>">
           <i class="fas fa-info-circle"></i>
-          <span>Data Pemesanan</span></a>
+          <span>Data Produk</span></a>
       </li>
 
       <li class="nav-item">
         <a class="nav-link" href="charts.html">
           <i class="fas fa-database"></i>
-          <span>Data Pelanggan</span></a>
+          <span>Data Pembeli</span></a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="charts.html">
@@ -106,17 +106,17 @@
       <hr class="sidebar-divider">
 
       <!-- Heading -->
-      <div class="sidebar-heading">
+      <!--   <div class="sidebar-heading">
         EVENT
       </div>
-
+ -->
 
       <!-- Nav Item - Charts -->
-      <li class="nav-item">
+      <!--  <li class="nav-item">
         <a class="nav-link" href="charts.html">
           <i class="fas fa-user-edit"></i>
           <span>Update Event</span></a>
-      </li>
+      </li> -->
 
       <!-- Nav Item - Tables -->
       <li class="nav-item">
@@ -183,93 +183,98 @@
 
         <!-- Begin Page Content -->
         <div class="container">
-
           <!-- Page Heading -->
           <h1 class="h3 mb-4 text-gray-800"><?= $title; ?></h1>
-          <div class="card mb-3 table-responsive-lg" style="max-width: 540px;">
-            <table class="table text-center">
-              <thead class="thead-dark">
-                <tr>
-                  <th>No</th>
-                  <th>Nama</th>
-                  <th>Email</th>
-                  <th>No Telpon</th>
-                  <th>Jumlah Tamu</th>
-                  <th>Tanggal Reservation</th>
-                  <th>Jam Reservation</th>
-                  <th>Type Reservation</th>
-                  <th>Request Reservation</th>
-                  <th>Action</th>
-                </tr>
-              </thead>
-              <tbody>
-                <?php
-                $no = 1;
-                foreach ($reservation as $rs) {
-                  ?>
+          <div class="col-md-12 centered">
+            <?php if ($this->session->flashdata('flash')) : ?>
+              <div class="alert alert-success alert-dismissible fade show" role="alert">
+                Data Reservation <strong>Berhasil</strong> <?= $this->session->flashdata('flash'); ?>
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              <? endif; ?>
+            </div>
+            <div class="card mb-2 table-responsive-lg text-center">
+              <table id="table" class="table table-striped table-bordered table-hover">
+                <thead class="thead-dark">
                   <tr>
-                    <td><?= $no++ ?></td>
-                    <td><?= $rs->nama ?></td>
-                    <td><?= $rs->email ?></td>
-                    <td><?= $rs->no_tlp ?></td>
-                    <td><?= $rs->jmlh_tamu ?></td>
-                    <td><?= $rs->tanggal_booking ?></td>
-                    <td><?= $rs->time_booking ?></td>
-                    <td><?= $rs->type_reservation ?></td>
-                    <td><?= $rs->req_deskripsi ?></td>
-                    <td class="text-center">
-                      <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
-                        <?= anchor('admin/edit/' . $rs->id, 'Edit', ['class' => 'btn btn-primary', 'id' => 'tombo1']); ?></button>
-                      <?= anchor('admin/hapus/' . $rs->id, 'Hapus', ['class' => 'btn btn-danger', 'id' => 'tombol2']); ?>
-                    </td>
+                    <th>No</th>
+                    <th>Nama</th>
+                    <th>Email</th>
+                    <th>No Telpon</th>
+                    <th>Jumlah Tamu</th>
+                    <th>Tanggal Reservation</th>
+                    <th>Jam Reservation</th>
+                    <th>Type Reservation</th>
+                    <th>Request Reservation</th>
+                    <th>Action</th>
                   </tr>
-                <?php } ?>
-              </tbody>
-            </table>
+                </thead>
+                <tbody>
+                  <?php
+                  $no = 1;
+                  foreach ($reservation as $rs) {
+                    ?>
+                    <tr>
+                      <td><?= $no++ ?></td>
+                      <td><?= $rs->nama ?></td>
+                      <td><?= $rs->email ?></td>
+                      <td><?= $rs->no_tlp ?></td>
+                      <td><?= $rs->jmlh_tamu ?></td>
+                      <td><?= $rs->tanggal_booking ?></td>
+                      <td><?= $rs->time_booking ?></td>
+                      <td><?= $rs->type_reservation ?></td>
+                      <td><?= $rs->req_deskripsi ?></td>
+                      <td class="text-center">
+                        <?= anchor('admin/detail/' . $rs->id, 'Detail', ['class' => 'btn btn-primary', 'id' => 'tombo1']); ?>
+                        <?= anchor('admin/hapus/' . $rs->id, 'Hapus', array('onclick' => "return confirm('Anda Yakin ?')"), ['class' => 'btn btn-primary',  'id' => 'tombo1']); ?>
+                      </td>
+                    </tr>
+                  <?php } ?>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <!-- /.container-fluid -->
+        </div>
+        <!-- End of Main Content -->
+
+        <!-- Footer -->
+        <footer class="sticky-footer bg-white">
+          <div class="container my-auto">
+            <div class="copyright text-center my-auto">
+              <span>Copyright &copy; Konakito.com 2019</span>
+            </div>
+          </div>
+        </footer>
+        <!-- End of Footer -->
+
+      </div>
+      <!-- End of Content Wrapper -->
+
+    </div>
+    <!-- End of Page Wrapper -->
+
+    <!-- Scroll to Top Button-->
+    <a class="scroll-to-top rounded" href="#page-top">
+      <i class="fas fa-angle-up"></i>
+    </a>
+
+    <!-- Logout Modal-->
+    <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+            <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">×</span>
+            </button>
+          </div>
+          <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+          <div class="modal-footer">
+            <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+            <a class="btn btn-primary" href="<?= base_url('auth'); ?>">Logout</a>
           </div>
         </div>
       </div>
     </div>
-    <!-- /.container-fluid -->
-  </div>
-  <!-- End of Main Content -->
-
-  <!-- Footer -->
-  <footer class="sticky-footer bg-white">
-    <div class="container my-auto">
-      <div class="copyright text-center my-auto">
-        <span>Copyright &copy; Konakito.com 2019</span>
-      </div>
-    </div>
-  </footer>
-  <!-- End of Footer -->
-
-  </div>
-  <!-- End of Content Wrapper -->
-
-  </div>
-  <!-- End of Page Wrapper -->
-
-  <!-- Scroll to Top Button-->
-  <a class="scroll-to-top rounded" href="#page-top">
-    <i class="fas fa-angle-up"></i>
-  </a>
-
-  <!-- Logout Modal-->
-  <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
-          <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">×</span>
-          </button>
-        </div>
-        <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
-        <div class="modal-footer">
-          <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-          <a class="btn btn-primary" href="<?= base_url('auth'); ?>">Logout</a>
-        </div>
-      </div>
-    </div>
-  </div>
