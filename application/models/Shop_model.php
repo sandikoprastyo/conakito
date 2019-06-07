@@ -25,16 +25,12 @@ class Shop_model extends CI_Model
       return array();
     }
   }
-}
 
 
-
-/* public function data()
+  function simpan($nama, $address, $no_tlp, $email, $berat, $tprovinsi, $tkota, $kurir, $banktf)
   {
-    $this->db->select('*');
-    $this->db->from('produk');
-    $data = $this->db->get();
-    return $data->result();
-    /*  return $this->db->get('produk')->result_array(); */
-    /*   $query=$this->db->get("produk");
-        return $query->result(); */
+    $hasil = $this->db->query("INSERT INTO invoice (nama_pembeli, alamat, no_tlp, email, berat, tujuan_provinsi, tujuan_kota, kurir, bank_transfer )
+         VALUES ('$nama','$address','$no_tlp','$email','$berat','$tprovinsi','$tkota','$kurir','$banktf')");
+    return $hasil;
+  }
+}

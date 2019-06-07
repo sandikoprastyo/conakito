@@ -51,31 +51,23 @@
           <span>Data Produk</span></a>
       </li>
 
+
       <li class="nav-item">
-        <a class="nav-link" href="charts.html">
-          <i class="fas fa-database"></i>
-          <span>Data Pembeli</span></a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="charts.html">
+        <a class="nav-link" href="<?= base_url('invoice/dataInvoice'); ?>">
           <i class="fas fa-table"></i>
-          <span>Data Transaksi</span></a>
+          <span>Invoice Pemesanan</span></a>
       </li>
 
-      <!-- Nav Item - Pages Collapse Menu -->
-      <!--  <li class="nav-item">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
-          <i class="fas fa-info-circle"></i>
-          <span>INFO</span>
-        </a>
-        <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-          <div class="bg-white py-2 collapse-inner rounded">
-            <a class="collapse-item" href="buttons.html">Data Pemesanan</a>
-            <a class="collapse-item" href="buttons.html">Data Pelanggan</a>
-            <a class="collapse-item" href="cards.html">Data Transaksi</a>
-          </div>
-        </div>
-      </li> -->
+      <hr class="sidebar-divider">
+      <div class="sidebar-heading">
+        Event
+      </div>
+      <li class="nav-item">
+        <a class="nav-link" href="<?= base_url('event/dataEvent'); ?>">
+          <i class="fas fa-calendar"></i>
+          <span>Data Event</span></a>
+      </li>
+
 
       <!-- Divider -->
       <hr class="sidebar-divider">
@@ -88,35 +80,7 @@
           <i class="fas fa-info-circle"></i>
           <span>Data Reservations</span></a>
       </li>
-      <!--  <div class="bg-white py-2 collapse-inner rounded">
-        <a class="collapse-item" href="utilities-color.html">Data Booking</a>
-        <a class="collapse-item" href="utilities-border.html">Data Pelanggan</a>
-      </div> -->
-      <!-- Nav Item - Utilities Collapse Menu -->
-      <!--   <li class="nav-item">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities" aria-expanded="true" aria-controls="collapseUtilities">
-          <i class="fas fa-info-circle"></i>
-          <span>INFO</span>
-        </a>
-        <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
-        </div>
-      </li> -->
 
-      <!-- Divider -->
-      <hr class="sidebar-divider">
-
-      <!-- Heading -->
-      <!--   <div class="sidebar-heading">
-        EVENT
-      </div>
- -->
-
-      <!-- Nav Item - Charts -->
-      <!--  <li class="nav-item">
-        <a class="nav-link" href="charts.html">
-          <i class="fas fa-user-edit"></i>
-          <span>Update Event</span></a>
-      </li> -->
 
       <!-- Nav Item - Tables -->
       <li class="nav-item">
@@ -226,8 +190,8 @@
                       <td><?= $rs->type_reservation ?></td>
                       <td><?= $rs->req_deskripsi ?></td>
                       <td class="text-center">
-                        <?= anchor('admin/detail/' . $rs->id, 'Detail', ['class' => 'btn btn-primary', 'id' => 'tombo1']); ?>
-                        <?= anchor('admin/hapus/' . $rs->id, 'Hapus', array('onclick' => "return confirm('Anda Yakin ?')"), ['class' => 'btn btn-primary',  'id' => 'tombo1']); ?>
+                        <!--  <?= anchor('admin/detail/' . $rs->id, 'Detail', ['class' => 'btn btn-primary', 'id' => 'tombo1']); ?> -->
+                        <?= anchor('admin/hapus/' . $rs->id, 'Hapus', ['onclick' => "return confirm('Anda Yakin ?')", 'class' => 'btn btn-danger',  'id' => 'tombo1']); ?>
                       </td>
                     </tr>
                   <?php } ?>

@@ -38,15 +38,21 @@
                     <i class="fas fa-info-circle"></i>
                     <span>Data Produk</span></a>
             </li>
+
             <li class="nav-item">
-                <a class="nav-link" href="charts.html">
-                    <i class="fas fa-database"></i>
-                    <span>Data Pembeli</span></a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="charts.html">
+                <a class="nav-link" href="<?= base_url('invoice/dataInvoice'); ?>">
                     <i class="fas fa-table"></i>
-                    <span>Data Transaksi</span></a>
+                    <span>Invoice Pemesanan</span></a>
+            </li>
+            <hr class="sidebar-divider">
+            <div class="sidebar-heading">
+                Event
+            </div>
+
+            <li class="nav-item">
+                <a class="nav-link" href="<?= base_url('event/dataEvent'); ?>">
+                    <i class="fas fa-calendar"></i>
+                    <span>Data Event</span></a>
             </li>
             <!-- Divider -->
             <hr class="sidebar-divider">
@@ -59,7 +65,7 @@
                     <i class="fas fa-info-circle"></i>
                     <span>Data Reservations</span></a>
             </li>
-            <hr class="sidebar-divider">
+
             <!-- Nav Item - Tables -->
             <li class="nav-item">
                 <a class="nav-link" href="<?= base_url('#'); ?>">
@@ -149,10 +155,10 @@
                                             <div class="form-group col-md-6">
                                                 <label for="berat_produk">Berat Produk</label>
                                                 <select class="form-control" value="<?= $pr->berat_produk; ?>" name="berat">
-                                                    <option value="1kg">1kg</option>
-                                                    <option value="500g">500g</option>
-                                                    <option value="250g">250g</option>
-                                                    <option value="100g">100g</option>
+                                                    <option value="1000">1000</option>
+                                                    <option value="500">500</option>
+                                                    <option value="250">250</option>
+                                                    <option value="100">100</option>
                                                 </select>
                                             </div>
                                             <div class="form-group col-md-6">
@@ -170,33 +176,34 @@
                                 <?php } ?>
                                 <div class="card-footer">
                                     <button class="btn btn-primary float-right ml-1">Simpan</button>
-                                    <?= form_close(); ?>
                                     <a href="<?= base_url('produk/dataProduk'); ?>" class="btn btn-danger float-right">Kembali</a>
+                                    <?= form_close(); ?>
                                 </div>
                             </div>
                             </form>
                         </div>
                     </div>
                 </div>
-                <footer class="sticky-footer bg-white">
-                    <div class="container my-auto">
-                        <div class="copyright text-center my-auto">
-                            <span>Copyright &copy; Konakito.com 2019</span>
-                        </div>
-                    </div>
-                </footer>
-                <!-- End of Footer -->
-
             </div>
-            <!-- End of Content Wrapper -->
+            <footer class="sticky-footer bg-white">
+                <div class="container my-auto">
+                    <div class="copyright text-center my-auto">
+                        <span>Copyright &copy; Konakito.com 2019</span>
+                    </div>
+                </div>
+            </footer>
+            <!-- End of Footer -->
 
         </div>
-        <!-- End of Page Wrapper -->
+        <!-- End of Content Wrapper -->
 
-        <!-- Scroll to Top Button-->
-        <a class="scroll-to-top rounded" href="#page-top">
-            <i class="fas fa-angle-up"></i>
-        </a>
+    </div>
+    <!-- End of Page Wrapper -->
+
+    <!-- Scroll to Top Button-->
+    <a class="scroll-to-top rounded" href="#page-top">
+        <i class="fas fa-angle-up"></i>
+    </a>
 
     </div>
     <!-- Logout Modal-->

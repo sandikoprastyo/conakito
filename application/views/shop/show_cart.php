@@ -36,7 +36,7 @@
     <div align="center">
         <?= anchor('Shop/clear_cart', 'Clear Cart', ['class' => 'btn btn-danger']) ?>
         <?= anchor('Shop/index_shop', 'Continue Shopping', ['class' => 'btn btn-primary']) ?>
-        <?= anchor('order', 'Check Out', ['class' => 'btn btn-success']) ?>
+        <?= anchor('Shop/lokasi', 'Check Out', ['class' => 'btn btn-success']) ?>
     </div>
 </div>
 </div>

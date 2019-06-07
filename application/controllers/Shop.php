@@ -50,13 +50,4 @@ class Shop extends CI_Controller
         $this->cart->destroy();
         redirect(base_url('shop/index_shop'));
     }
-
-    ////* Check out *///
-    public function order()
-    {
-        $title['judul'] = 'Konakito.com';
-        $this->load->view('templates/header', $title);
-        $this->load->view('shop/order_shop');
-        $this->load->view('templates/footer');
-    }
 }

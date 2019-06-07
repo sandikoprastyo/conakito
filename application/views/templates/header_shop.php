@@ -47,7 +47,7 @@
             </ul>
             <ul class="nav">
                 <li class="nav-item">
-                    <i class="fa fa-shopping-cart justify-content-end" data-toggle="modal" data-target=".bd-example-modal-lg" style="font-size:20px;color:white"><span class="badge badge-light mt-1">0</span></i>
+                    <i class="fa fa-shopping-cart justify-content-end" data-toggle="modal" data-target=".bd-example-modal-lg" style="font-size:20px;color:white"><span><?php $cart = $this->cart->total_items() ?> <?= $cart ?></span></i>
                     <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
                         <div class="modal-dialog modal-lg">
                             <div class="modal-content">
@@ -72,7 +72,7 @@
                                                 <td><?= $i ?></td>
                                                 <td><?= $items['name'] ?></td>
                                                 <td><?= $items['qty'] ?></td>
-                                                <td><?= $items['berat'] ?></td>
+                                                <td><?= $items['berat'] ?> Gram</td>
                                                 <td><?= number_format($items['price'], 0, ',', '.') ?></td>
                                                 <td><?= number_format($items['subtotal'], 0, ',', '.') ?></td>
                                             </tr>
@@ -80,15 +80,19 @@
                                     </tbody>
                                     <tfoot>
                                         <tr>
-                                            <td align="right" colspan="4">Total </td>
-                                            <td align="right"><?= number_format($this->cart->total(), 0, ',', '.'); ?></td>
+                                            <td class="text-right" colspan="5">
+                                                <?php if ($this->cart->total_items() > 0) { ?>
+                                                    <strong>Total Rp.
+                                                <td><?= number_format($this->cart->total(), 0, ',', '.'); ?></td></strong>
+                                            <?php } ?>
+                                            </td>
                                         </tr>
                                     </tfoot>
                                 </table>
                                 <div align="center">
                                     <?= anchor('Shop/clear_cart', 'Clear Cart', ['class' => 'btn btn-danger']) ?>
                                     <?= anchor(base_url('Shop/index_shop'), 'Continue Shopping', ['class' => 'btn btn-primary']) ?>
-                                    <?= anchor('Shop/order', 'Check Out', ['class' => 'btn btn-success']) ?>
+                                    <?= anchor('invoice/checkOut', 'Check Out', ['class' => 'btn btn-success']) ?>
                                 </div>
                             </div>
                         </div>

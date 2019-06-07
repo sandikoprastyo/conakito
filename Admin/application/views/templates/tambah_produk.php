@@ -52,30 +52,21 @@
             </li>
 
             <li class="nav-item">
-                <a class="nav-link" href="charts.html">
-                    <i class="fas fa-database"></i>
-                    <span>Data Pembeli</span></a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="charts.html">
+                <a class="nav-link" href="<?= base_url('invoice/dataInvoice'); ?>">
                     <i class="fas fa-table"></i>
-                    <span>Data Transaksi</span></a>
+                    <span>Invoice Pemesanan</span></a>
             </li>
 
-            <!-- Nav Item - Pages Collapse Menu -->
-            <!--  <li class="nav-item">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
-          <i class="fas fa-info-circle"></i>
-          <span>INFO</span>
-        </a>
-        <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-          <div class="bg-white py-2 collapse-inner rounded">
-            <a class="collapse-item" href="buttons.html">Data Pemesanan</a>
-            <a class="collapse-item" href="buttons.html">Data Pelanggan</a>
-            <a class="collapse-item" href="cards.html">Data Transaksi</a>
-          </div>
-        </div>
-      </li> -->
+            <hr class="sidebar-divider">
+            <div class="sidebar-heading">
+                Event
+            </div>
+
+            <li class="nav-item">
+                <a class="nav-link" href="<?= base_url('event/dataEvent'); ?>">
+                    <i class="fas fa-calendar"></i>
+                    <span>Data Event</span></a>
+            </li>
 
             <!-- Divider -->
             <hr class="sidebar-divider">
@@ -88,35 +79,7 @@
                     <i class="fas fa-info-circle"></i>
                     <span>Data Reservations</span></a>
             </li>
-            <!--  <div class="bg-white py-2 collapse-inner rounded">
-        <a class="collapse-item" href="utilities-color.html">Data Booking</a>
-        <a class="collapse-item" href="utilities-border.html">Data Pelanggan</a>
-      </div> -->
-            <!-- Nav Item - Utilities Collapse Menu -->
-            <!--   <li class="nav-item">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities" aria-expanded="true" aria-controls="collapseUtilities">
-          <i class="fas fa-info-circle"></i>
-          <span>INFO</span>
-        </a>
-        <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
-        </div>
-      </li> -->
 
-            <!-- Divider -->
-            <hr class="sidebar-divider">
-
-            <!-- Heading -->
-            <!--   <div class="sidebar-heading">
-        EVENT
-      </div>
- -->
-
-            <!-- Nav Item - Charts -->
-            <!--  <li class="nav-item">
-        <a class="nav-link" href="charts.html">
-          <i class="fas fa-user-edit"></i>
-          <span>Update Event</span></a>
-      </li> -->
 
             <!-- Nav Item - Tables -->
             <li class="nav-item">
@@ -185,84 +148,82 @@
                 <div class="container">
                     <!-- Page Heading -->
                     <h1 class="h3 mb-4 text-gray-800"><?= $title; ?></h1>
-
-                    <div class="col-md-12 centered">
-                        <?php if ($this->session->flashdata('flash')) : ?>
-                            <div class="alert alert-success alert-dismissible fade show" role="alert">
-                                Data Produk <strong>Berhasil</strong> <?= $this->session->flashdata('flash'); ?>
-                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                    <span aria-hidden="true">&times;</span>
-                                </button>
-                            <? endif; ?>
-                        </div>
-                        <?php if (validation_errors()) : ?>
-                            <div class="alert alert-danger" role="alert">
-                                <?= validation_errors(); ?>
+                    <div class="container" style="margin-top: 50px">
+                        <div class="col-md-12 centered">
+                            <?php if ($this->session->flashdata('flash')) : ?>
+                                <div class="alert alert-success alert-dismissible fade show" role="alert">
+                                    Data Produk <strong>Berhasil</strong> <?= $this->session->flashdata('flash'); ?>
+                                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                <? endif; ?>
                             </div>
-                        <?php endif; ?>
-                        <div class="card">
-                            <div class="card-body">
-                                <form action="<?= base_url('produk/tambahProduk'); ?>" method="post">
-                                    <div class="form-row">
-                                        <div class="form-group col-md-6">
-                                            <label for="inputEmail4">Nama Produk</label>
-                                            <input type="text" class="form-control" name="nama">
+                            <?php if (validation_errors()) : ?>
+                                <div class="alert alert-danger" role="alert">
+                                    <?= validation_errors(); ?>
+                                </div>
+                            <?php endif; ?>
+                            <div class="card">
+                                <div class="card-body">
+                                    <form action="<?= base_url('produk/tambahProduk'); ?>" method="post">
+                                        <div class="form-row">
+                                            <div class="form-group col-md-6">
+                                                <label for="inputEmail4">Nama Produk</label>
+                                                <input type="text" class="form-control" name="nama">
+                                            </div>
+                                            <div class="form-group col-md-6">
+                                                <label for="berat_produk">Berat Produk</label>
+                                                <select class="form-control" name="berat">
+                                                    <option value="1000">1000</option>
+                                                    <option value="500">500</option>
+                                                    <option value="250">250</option>
+                                                    <option value="100">100</option>
+                                                </select>
+                                            </div>
                                         </div>
                                         <div class="form-group col-md-6">
-                                            <label for="berat_produk">Berat Produk</label>
-                                            <select class="form-control" name="berat">
-                                                <option value="1kg">1kg</option>
-                                                <option value="500g">500g</option>
-                                                <option value="250g">250g</option>
-                                                <option value="100g">100g</option>
-                                            </select>
+                                            <label for="inputAddress">Harga Produk</label>
+                                            <input type="text" class="form-control" name="harga">
                                         </div>
-                                    </div>
-                                    <div class="form-group col-md-6">
-                                        <label for="inputAddress">Harga Produk</label>
-                                        <input type="text" class="form-control" name="harga">
-                                    </div>
-                                    <div class="form-group">
                                         <div class="form-group">
-                                            <label for="exampleFormControlFile1">Masukan Foto Produk</label>
-                                            <input type="file" class="form-control-file" name="foto">
+                                            <div class="form-group">
+                                                <label for="exampleFormControlFile1">Masukan Foto Produk</label>
+                                                <input type="file" class="form-control-file" name="foto">
+                                            </div>
                                         </div>
-                                    </div>
+                                </div>
+                                <div class="card-footer">
+                                    <button type="submit" class="btn btn-primary float-right">Tambah</button>
+                                    <a href="<?= base_url('produk/dataProduk'); ?>" class="btn btn-danger float-right">Kembali</a>
+                                </div>
                             </div>
-                            <div class="card-footer">
-                                <button type="submit" class="btn btn-primary float-right">Tambah</button>
-                                <a href="<?= base_url('produk/dataProduk'); ?>" class="btn btn-danger float-right">Kembali</a>
-                            </div>
-
+                            </form>
                         </div>
-                        </form>
                     </div>
                 </div>
+
+
+                <footer class="sticky-footer bg-white">
+                    <div class="container my-auto">
+                        <div class="copyright text-center my-auto">
+                            <span>Copyright &copy; Konakito.com 2019</span>
+                        </div>
+                    </div>
+                </footer>
+                <!-- End of Footer -->
+
             </div>
+            <!-- End of Content Wrapper -->
+
         </div>
-    </div>
-    </div>
-    </div>
-    <footer class="sticky-footer bg-white">
-        <div class="container my-auto">
-            <div class="copyright text-center my-auto">
-                <span>Copyright &copy; Konakito.com 2019</span>
-            </div>
-        </div>
-    </footer>
-    <!-- End of Footer -->
+        <!-- End of Page Wrapper -->
+
+        <!-- Scroll to Top Button-->
+        <a class="scroll-to-top rounded" href="#page-top">
+            <i class="fas fa-angle-up"></i>
+        </a>
 
     </div>
-    <!-- End of Content Wrapper -->
-
-    </div>
-    <!-- End of Page Wrapper -->
-
-    <!-- Scroll to Top Button-->
-    <a class="scroll-to-top rounded" href="#page-top">
-        <i class="fas fa-angle-up"></i>
-    </a>
-
     <!-- Logout Modal-->
     <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">

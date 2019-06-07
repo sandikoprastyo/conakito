@@ -27,7 +27,6 @@ class admin extends CI_Controller
         $data['admin'] = $this->db->get_where('admin', ['email' =>
         $this->session->userdata('email')])->row_array();
         $data['reservation'] = $this->M_reservation->getAll()->result();
-        /*  echo 'Selamat datang admin ', $data['admin']['nama']; */
         $this->load->view('templates/auth_header', $data);
         $this->load->view('admin/reservation', $data);
         $this->load->view('templates/auth_footer');
