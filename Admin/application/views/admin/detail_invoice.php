@@ -177,9 +177,14 @@
                                     <?php
                                     $total = 0;
                                     $no = 1;
-                                    foreach ($pesanan as $in) :
-                                        $subtotal = $in->jumlah * $in->harga;
-                                        $total += $subtotal;
+                                    if (is_array($pesanan)) {
+
+                                        foreach ($pesanan as $in) {
+
+                                            $subtotal = $in->jumlah * $in->harga;
+                                            $total += $subtotal;
+                                        }
+
                                         ?>
                                         <tr>
                                             <td><?= $no++ ?></td>
@@ -191,7 +196,7 @@
                                             <td><?= number_format($in->harga, 0, ',', '.') ?></td>
                                             <td><?= number_format($subtotal, 0, ',', '.') ?></td>
                                         </tr>
-                                    <?php endforeach; ?>
+                                    <?php } ?>
                                 </tbody>
                             </table>
                         </div>

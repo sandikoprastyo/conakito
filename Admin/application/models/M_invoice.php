@@ -24,9 +24,9 @@ class m_invoice extends CI_Model
         }
     }
 
-    public function ambil_id_pesanan($id)
+    public function ambil_id_pesanan($id_pesanan)
     {
-        $result = $this->db->where('id', $id)->get('pesanan');
+        $result = $this->db->where('id_pesanan', $id_pesanan)->get('pesanan');
         if ($result->num_rows() > 0) {
             return $result->result();
         } else {
