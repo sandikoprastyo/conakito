@@ -4,9 +4,12 @@ class invoice extends CI_Controller
 {
 
     public $api_key = 'a75caa11dacbe32e7d1e939a3e7f3f07';
-
-    ////* Check out *///
-    public function checkOut()
+    public function __construct()
+    {
+        parent::__construct();
+        $this->load->model('m_invoice');
+    }
+    public function index()
     {
         $title['judul'] = 'Konakito.com';
         $this->load->view('templates/header', $title);
@@ -14,23 +17,14 @@ class invoice extends CI_Controller
         $this->load->view('templates/footer');
     }
 
-
-
-    /* Konfirm pengiriman daan data pembeli */
-    public function send()
+    public function proses()
     {
-        $this->load->model('M_invoice');
-        $nama = $this->input->post('nama');
-        $address = $this->input->post('alamat');
-        $no_tlp = $this->input->post('no_tlp');
-        $email = $this->input->post('email');
-        $tprovinsi = $this->input->post('tujuan_provinsi');
-        $kurir = $this->input->post('kurir');
-        $banktf = $this->input->post('bank_transfer');
-        $this->M_invoice->simpan($nama, $address, $no_tlp, $email, $tprovinsi, $kurir, $banktf);
-        redirect('payment/index');
+        $is_proses = $this->m_invoice->index();
+        $title['judul'] = 'Konakito.com';
+        $this->load->view('templates/header', $title);
+        $this->load->view('shop/payment');
+        $this->load->view('templates/footer');
     }
-
 
     /* Konfirm pengiriman daan data pembeli */
     function _api_ongkir_post($origin, $des, $qty, $cour)

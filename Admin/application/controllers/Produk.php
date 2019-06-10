@@ -18,6 +18,7 @@ class produk extends CI_Controller
         $this->session->userdata('email')])->row_array();
         /*  echo 'Selamat datang admin ', $data['admin']['nama']; */
         $this->load->view('templates/auth_header', $data);
+        $this->load->view('templates/nav');
         $this->load->view('admin/index', $data);
         $this->load->view('templates/auth_footer');
     }
@@ -30,6 +31,7 @@ class produk extends CI_Controller
         $data['produk'] = $this->M_produk->getAll()->result();
         /*  echo 'Selamat datang admin ', $data['admin']['nama']; */
         $this->load->view('templates/auth_header', $data);
+        $this->load->view('templates/nav');
         $this->load->view('admin/produk', $data);
         $this->load->view('templates/auth_footer');
     }
@@ -71,6 +73,7 @@ class produk extends CI_Controller
         $data['admin'] = $this->db->get_where('admin', ['email' =>
         $this->session->userdata('email')])->row_array();
         $this->load->view('templates/auth_header', $data);
+        $this->load->view('templates/nav');
         $this->load->view('templates/edit_produk', $data);
         $this->load->view('templates/auth_footer');
     }
@@ -88,6 +91,7 @@ class produk extends CI_Controller
         if ($this->form_validation->run() == FALSE) {
             $data['produk'] = $this->M_produk->getAll()->result();
             $this->load->view('templates/auth_header', $data);
+            $this->load->view('templates/nav');
             $this->load->view('templates/tambah_produk', $data);
             $this->load->view('templates/auth_footer');
         } else {

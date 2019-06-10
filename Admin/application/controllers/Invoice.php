@@ -14,8 +14,9 @@ class invoice extends CI_Controller
         $data['title'] = 'Invoice Pemesanan';
         $data['admin'] = $this->db->get_where('admin', ['email' =>
         $this->session->userdata('email')])->row_array();
-        $data['invoice'] = $this->M_invoice->getAll()->result();
+        $data['invoice'] = $this->M_invoice->tampil_data();
         $this->load->view('templates/auth_header', $data);
+        $this->load->view('templates/nav');
         $this->load->view('admin/invoice', $data);
         $this->load->view('templates/auth_footer');
     }
@@ -30,16 +31,14 @@ class invoice extends CI_Controller
 
     public function detail($id_invoice)
     {
-        $data['title'] = 'Detail Invoice';
+        $title['title'] = 'Detail Invoice';
         $data['admin'] = $this->db->get_where('admin', ['email' =>
         $this->session->userdata('email')])->row_array();
         $data['invoice'] = $this->M_invoice->ambil_id_invoice($id_invoice);
         $data['pesanan'] = $this->M_invoice->ambil_id_pesanan($id_invoice);
-        $this->load->view('templates/auth_header', $data);
+        $this->load->view('templates/auth_header', $title);
+        $this->load->view('templates/nav');
         $this->load->view('admin/detail_invoice', $data);
         $this->load->view('templates/auth_footer');
     }
-
-    public function pesanan()
-    { }
 }

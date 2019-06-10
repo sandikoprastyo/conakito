@@ -13,10 +13,10 @@ class Shop_model extends CI_Model
     }
   }
 
-  public function find($id)
+  public function find($id_produk)
   {
     //Query mencari record berdasarkan ID-nya
-    $hasil = $this->db->where('id_produk', $id)
+    $hasil = $this->db->where('id_produk', $id_produk)
       ->limit(1)
       ->get('produk');
     if ($hasil->num_rows() > 0) {
@@ -24,6 +24,18 @@ class Shop_model extends CI_Model
     } else {
       return array();
     }
+  }
+
+  public function findDetail($id_produk)
+  {
+    $data = array();
+    $options = array('id_produk' => $id_produk);
+    $Q = $this->db->get_where('produk', $options, 1);
+    if ($Q->num_rows() > 0) {
+      $data = $Q->row_array();
+    }
+    $Q->free_result();
+    return $data;
   }
 
 

@@ -1,25 +1,28 @@
 <!-- Page Content -->
 <h1 class="mt-5 text-center"><strong>Shop Coffee Beans Konakito</strong></h1>
 <!-- Tampilkan semua produk -->
-<div class="container">
+<div class="container text-center">
     <div class="row">
 
         <!-- looping products -->
         <?php foreach ($shop as $shp) : ?>
-            <div class="col-lg-3 col-md-3 col-sm-3 mt-5 mb-5">
-                <div class="card" width="15rem;">
-                    <img src="<?= base_url('assets/img/' . $shp->foto_produk . ''); ?>" class="card-img-top" alt="img">
+            <div class="col-lg-4 col-md-6 col-sm-7 mt-5 mb-5 p-2">
+                <div class="card" style="width: 20rem;">
+                    <img src="<?= base_url('assets/img/' . $shp->foto_produk . ''); ?>" class="card-img-top" style="width:20rem; height: 20rem;" alt="img">
                     <div class="card-body">
-                        <h5 class="card-title"><?= $shp->nama_produk ?></h5>
-
+                        <h4 class="card-title"><?= $shp->nama_produk ?></h4>
                         <p><?= 'Rp ' . number_format($shp->harga_produk); ?></p>
                         <p><?= $shp->berat_produk ?> Gram</p>
-                        <p>
+                        <div class="card-footer badge">
                             <?= anchor('Shop/addcart/' . $shp->id_produk, 'Buy', [
                                 'class'    => 'btn btn-primary',
                                 'onclick'     => "alert('Silakan cek Keranjang Anda !')"
                             ]) ?>
-                        </p>
+
+                            <?= anchor('Shop/detailMenu/' . $shp->id_produk, 'Detail', [
+                                'class'    => 'btn btn-info'
+                            ]) ?>
+                        </div>
                     </div>
                 </div>
             </div>

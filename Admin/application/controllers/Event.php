@@ -16,6 +16,7 @@ class event extends CI_Controller
         $data['admin'] = $this->db->get_where('admin', ['email' =>
         $this->session->userdata('email')])->row_array();
         $this->load->view('templates/auth_header', $data);
+        $this->load->view('templates/nav');
         $this->load->view('admin/event', $data);
         $this->load->view('templates/auth_footer');
     }
@@ -27,6 +28,7 @@ class event extends CI_Controller
         $this->session->userdata('email')])->row_array();
         $data['event'] = $this->M_event->getAll()->result();
         $this->load->view('templates/auth_header', $data);
+        $this->load->view('templates/nav');
         $this->load->view('admin/event', $data);
         $this->load->view('templates/auth_footer');
     }
@@ -68,6 +70,7 @@ class event extends CI_Controller
         $data['admin'] = $this->db->get_where('admin', ['email' =>
         $this->session->userdata('email')])->row_array();
         $this->load->view('templates/auth_header', $data);
+        $this->load->view('templates/nav');
         $this->load->view('templates/edit_event', $data);
         $this->load->view('templates/auth_footer');
     }
@@ -85,6 +88,7 @@ class event extends CI_Controller
         if ($this->form_validation->run() == FALSE) {
             $data['event'] = $this->M_event->getAll()->result();
             $this->load->view('templates/auth_header', $data);
+            $this->load->view('templates/nav');
             $this->load->view('templates/tambah_event', $data);
             $this->load->view('templates/auth_footer');
         } else {

@@ -45,9 +45,20 @@ class Shop extends CI_Controller
         $this->cart->insert($data);
         redirect(base_url('Shop/show_cart'));
     }
+
+
     public function clear_cart()
     {
         $this->cart->destroy();
         redirect(base_url('shop/index_shop'));
+    }
+
+    public function detailMenu($id_produk)
+    {
+        $title['judul'] = 'Konakito.com';
+        $data['shop'] = $this->Shop_model->findDetail($this->uri->segment(3));
+        $this->load->view('templates/header_shop', $title, $data);
+        $this->load->view('shop/detail_shop', $data);
+        $this->load->view('templates/footer');
     }
 }

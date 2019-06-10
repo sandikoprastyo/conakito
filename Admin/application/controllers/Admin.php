@@ -16,6 +16,7 @@ class admin extends CI_Controller
         $this->session->userdata('email')])->row_array();
         /*  echo 'Selamat datang admin ', $data['admin']['nama']; */
         $this->load->view('templates/auth_header', $data);
+        $this->load->view('templates/nav');
         $this->load->view('admin/index', $data);
         $this->load->view('templates/auth_footer');
     }
@@ -28,6 +29,7 @@ class admin extends CI_Controller
         $this->session->userdata('email')])->row_array();
         $data['reservation'] = $this->M_reservation->getAll()->result();
         $this->load->view('templates/auth_header', $data);
+        $this->load->view('templates/nav');
         $this->load->view('admin/reservation', $data);
         $this->load->view('templates/auth_footer');
     }

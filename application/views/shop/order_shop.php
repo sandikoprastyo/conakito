@@ -1,6 +1,6 @@
 <h1 class="mt-5 mb-5 text-center"><strong>Checkout Shop Konakito</strong></h1>
 <div class="container">
-    <form class="form-horizontal" method="post" action="<?= base_url('invoice/send'); ?>">
+    <form class="form-horizontal" method="post" action="<?= base_url('invoice/proses'); ?>">
         <div class="row">
             <div class="col-12">
                 <!-- Shipping address -->
@@ -32,36 +32,36 @@
                     </div>
                 </div>
                 <!--  <div class=" form-group">
-                    <label class="control-label col-sm-2">Weight:</label>
-                    <div class="input-group-append col-sm-10">
-                        <?php foreach ($this->cart->contents() as $items) :
-                            ?>
-                                                                                                                                <input type="number" value="<?= $items['qty'] * $items['berat'] ?>" class=" form-control" id="berat" name="berat">
-                        <?php endforeach; ?>
-                        <div class="input-group-append">
-                            <span class="input-group-text">Gram</span>
+                        <label class="control-label col-sm-2">Weight:</label>
+                        <div class="input-group-append col-sm-10">
+                            <?php foreach ($this->cart->contents() as $items) :
+                                ?>
+                                                                                                                                                                                                                                                                                                <input type="number" value="<?= $items['qty'] * $items['berat'] ?>" class=" form-control" id="berat" name="berat">
+                            <?php endforeach; ?>
+                            <div class="input-group-append">
+                                <span class="input-group-text">Gram</span>
 
+                            </div>
+                        </div>
+                        <span class="col-sm-10">Note: 1Kg Sama Dengan 1000 Gram</span>
+                    </div>
+     -->
+                <!-- <div class="form-group">
+                        <label class="control-label col-sm-2">Lokasi Asal:</label>
+                        <div class="col-sm-10">
+                            <select class="form-control" id="sel1">
+                                <option value="Bengkulu" name="aprovinsi"> Pilih Provinsi</option>
+                            </select>
                         </div>
                     </div>
-                    <span class="col-sm-10">Note: 1Kg Sama Dengan 1000 Gram</span>
-                </div>
- -->
-                <!-- <div class="form-group">
-                    <label class="control-label col-sm-2">Lokasi Asal:</label>
-                    <div class="col-sm-10">
-                        <select class="form-control" id="sel1">
-                            <option value="Bengkulu" name="aprovinsi"> Pilih Provinsi</option>
-                        </select>
-                    </div>
-                </div>
 
-                <div class="form-group">
-                    <div class="col-sm-10">
-                        <select class="form-control" id="sel2" disabled>
-                            <option value="Kota Bengkulu " name="akota"> Pilih Kota</option>
-                        </select>
-                    </div>
-                </div> -->
+                    <div class="form-group">
+                        <div class="col-sm-10">
+                            <select class="form-control" id="sel2" disabled>
+                                <option value="Kota Bengkulu " name="akota"> Pilih Kota</option>
+                            </select>
+                        </div>
+                    </div> -->
 
 
                 <div class="form-group">
@@ -74,12 +74,12 @@
                 </div>
 
                 <!--    <div class="form-group">
-                    <div class="col-sm-10">
-                        <select class="form-control" id="sel22" name="tujuan_kota" disabled>
-                            <option> Pilih Kota</option>
-                        </select>
-                    </div>
-                </div> -->
+                        <div class="col-sm-10">
+                            <select class="form-control" id="sel22" name="tujuan_kota" disabled>
+                                <option> Pilih Kota</option>
+                            </select>
+                        </div>
+                    </div> -->
 
                 <div class="form-group">
                     <label class="control-label col-sm-2">Pilih Kurir:</label>
@@ -105,12 +105,12 @@
                     </div>
                 </div>
                 <!--    <div class="form-group">
-                    <div class="col-sm-10">
+                        <div class="col-sm-10">
 
-                        <div id="hasil"></div>
+                            <div id="hasil"></div>
 
-                    </div>
-                </div> -->
+                        </div>
+                    </div> -->
 
                 <div class="mb-5 footBtn">
                     <a href="<?= base_url('Shop/index_shop'); ?>" class="btn btn-primary orderBtn"><i class="glyphicon glyphicon-menu-right"></i>Back</a>

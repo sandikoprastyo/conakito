@@ -51,48 +51,50 @@
                     <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
                         <div class="modal-dialog modal-lg">
                             <div class="modal-content">
-                                <table class="table">
-                                    <thead>
-                                        <tr>
-                                            <th scope="col1">No</th>
-                                            <th scope="col2">Produk</th>
-                                            <th scope="col2">Quantity</th>
-                                            <th scope="col3">Berat</th>
-                                            <th scope="col4">Harga</th>
-                                            <th scope="col5">Subtotal</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <?php
-                                        $i = 0;
-                                        foreach ($this->cart->contents() as $items) :
-                                            $i++;
-                                            ?>
+                                <div class="table-responsive">
+                                    <table class="table">
+                                        <thead>
                                             <tr>
-                                                <td><?= $i ?></td>
-                                                <td><?= $items['name'] ?></td>
-                                                <td><?= $items['qty'] ?></td>
-                                                <td><?= $items['berat'] ?> Gram</td>
-                                                <td><?= number_format($items['price'], 0, ',', '.') ?></td>
-                                                <td><?= number_format($items['subtotal'], 0, ',', '.') ?></td>
+                                                <th scope="col1">No</th>
+                                                <th scope="col2">Produk</th>
+                                                <th scope="col2">Quantity</th>
+                                                <th scope="col3">Berat</th>
+                                                <th scope="col4">Harga</th>
+                                                <th scope="col5">Subtotal</th>
                                             </tr>
-                                        <?php endforeach; ?>
-                                    </tbody>
-                                    <tfoot>
-                                        <tr>
-                                            <td class="text-right" colspan="5">
-                                                <?php if ($this->cart->total_items() > 0) { ?>
-                                                    <strong>Total Rp.
-                                                <td><?= number_format($this->cart->total(), 0, ',', '.'); ?></td></strong>
-                                            <?php } ?>
-                                            </td>
-                                        </tr>
-                                    </tfoot>
-                                </table>
-                                <div align="center">
-                                    <?= anchor('Shop/clear_cart', 'Clear Cart', ['class' => 'btn btn-danger']) ?>
-                                    <?= anchor(base_url('Shop/index_shop'), 'Continue Shopping', ['class' => 'btn btn-primary']) ?>
-                                    <?= anchor('invoice/checkOut', 'Check Out', ['class' => 'btn btn-success']) ?>
+                                        </thead>
+                                        <tbody>
+                                            <?php
+                                            $i = 0;
+                                            foreach ($this->cart->contents() as $items) :
+                                                $i++;
+                                                ?>
+                                                <tr>
+                                                    <td><?= $i ?></td>
+                                                    <td><?= $items['name'] ?></td>
+                                                    <td><?= $items['qty'] ?></td>
+                                                    <td><?= $items['berat'] ?> Gram</td>
+                                                    <td><?= number_format($items['price'], 0, ',', '.') ?></td>
+                                                    <td><?= number_format($items['subtotal'], 0, ',', '.') ?></td>
+                                                </tr>
+                                            <?php endforeach; ?>
+                                        </tbody>
+                                        <tfoot>
+                                            <tr>
+                                                <td class="text-right" colspan="5">
+                                                    <?php if ($this->cart->total_items() > 0) { ?>
+                                                        <strong>Total Rp.
+                                                    <td><?= number_format($this->cart->total(), 0, ',', '.'); ?></td></strong>
+                                                <?php } ?>
+                                                </td>
+                                            </tr>
+                                        </tfoot>
+                                    </table>
+                                    <div align="center">
+                                        <?= anchor('Shop/clear_cart', 'Clear Cart', ['class' => 'btn btn-danger']) ?>
+                                        <?= anchor(base_url('Shop/index_shop'), 'Continue Shopping', ['class' => 'btn btn-primary']) ?>
+                                        <?= anchor('invoice/index', 'Check Out', ['class' => 'btn btn-success']) ?>
+                                    </div>
                                 </div>
                             </div>
                         </div>
