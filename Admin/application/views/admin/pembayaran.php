@@ -69,38 +69,36 @@
                             <thead class="thead-dark">
                                 <tr>
                                     <th>No</th>
-                                    <th>No Invoice</th>
                                     <th>Bank Pengirim</th>
                                     <th>No Rekening Pengirim</th>
                                     <th>Nama Pengirim</th>
                                     <th>Tanggal Pengirim</th>
                                     <th>Jumlah Transfer</th>
                                     <th>Bukti Pembayaran</th>
+                                    <th>Action</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <?php
                                 $no = 1;
-                                if (is_array($pembayaran)) {
-                                    foreach ($pembayaran as $pm)
-
-                                        ?>
+                                foreach ($pembayaran as $pm) {
+                                    ?>
                                     <tr>
                                         <td><?= $no++ ?></td>
-                                        <td><span class="badge badge-warning"><?= $pm->id_invoice ?></span></td>
+                                        <!-- td><span class="badge badge-warning"><?= $pm->id_invoice ?></span></td> -->
                                         <td><?= $pm->bank_pengirim ?></td>
                                         <td><?= $pm->norek_pengirim ?></td>
                                         <td><?= $pm->nama_pengirim ?></td>
                                         <td><?= $pm->tanggal_pengirim ?></td>
                                         <td><?= $pm->jumlah_transfer ?></td>
                                         <td><img id="myImg" src="<?= base_url('../assets/img/struk/' . $pm->bukti_pembayaran . ''); ?>" style="width:300px;height:200px;"></td>
+                                        <td> <?= anchor('pembayaran/hapus/' . $pm->id_pembayaran, 'Hapus',  ['class' => 'btn btn-danger']); ?></td>
                                     </tr>
                                 <?php } ?>
                             </tbody>
                         </table>
                     </div>
                 </div>
-                <?= anchor('invoice/dataInvoice/', 'Back',  ['class' => 'btn btn-primary']); ?>
             </div>
         </div>
 

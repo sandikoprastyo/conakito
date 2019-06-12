@@ -97,7 +97,6 @@
                                         <td>
                                             <?= anchor('invoice/detail/' . $in->id_invoice, 'Detail',  ['class' => 'btn btn-secondary p-2']); ?>
                                             <?= anchor('invoice/hapus/' . $in->id_invoice, 'Hapus', ['onclick' => "return confirm('Anda Yakin ?')", 'class' => 'btn btn-danger p-2']); ?>
-                                            <?= anchor('pembayaran/dataPembayaran/' . $in->id_invoice, 'Pembayaran',  ['class' => 'btn btn-info p-2']); ?>
                                         </td>
                                     </tr>
                                 <?php } ?>

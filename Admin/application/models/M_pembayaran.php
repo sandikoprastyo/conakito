@@ -10,16 +10,15 @@ class m_pembayaran extends CI_Model
         return;
     }
 
-    public function ambil_id_invoice($id_invoice)
+    public function getAll()
     {
-        $result = $this->db->where('id_invoice', $id_invoice)->limit(1)->get('invoice');
-        if ($result->num_rows() > 0) {
-            return $result->row();
-        } else {
-            return false;
-        }
+        return $this->db->get('pembayaran');
     }
 
+    public function getpembayaran()
+    {
+        return $this->db->get('pembayaran');
+    }
 
     public function ambil_id_pembayaran($id_invoice)
     {

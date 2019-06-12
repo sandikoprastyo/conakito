@@ -8,6 +8,7 @@ class invoice extends CI_Controller
     {
         parent::__construct();
         $this->load->model('m_invoice');
+        $this->load->library('form_validation');
     }
     public function index()
     {
@@ -19,11 +20,25 @@ class invoice extends CI_Controller
 
     public function proses()
     {
-        $is_proses = $this->m_invoice->index();
+
         $title['judul'] = 'Konakito.com';
-        $this->load->view('templates/header', $title);
-        $this->load->view('shop/payment');
-        $this->load->view('templates/footer');
+        $this->form_validation->set_rules('nama', 'Nama', 'required');
+        $this->form_validation->set_rules('alamat', 'Alamat', 'required');
+        $this->form_validation->set_rules('no_tlp', 'No_tlp', 'required|numeric');
+        $this->form_validation->set_rules('email', 'Email', 'required');
+        $this->form_validation->set_rules('tujuan_provinsi', 'Tujuan_provinsi', 'required');
+        $this->form_validation->set_rules('kurir', 'Kurir', 'required');
+        $this->form_validation->set_rules('bank_transfer', 'Bank_transfer', 'required');
+
+
+        if ($this->form_validation->run() == FALSE) {
+            $this->load->view('templates/header', $title);
+            $this->load->view('shop/payment');
+            $this->load->view('templates/footer');
+        } else {
+            $is_proses = $this->m_invoice->index();
+            redirect('payment/index');
+        }
     }
 
     /* Konfirm pengiriman daan data pembeli */

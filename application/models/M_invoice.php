@@ -4,23 +4,15 @@ class m_invoice extends CI_Model
 {
     public function index()
     {
-        $nama = $this->input->post('nama');
-        $address = $this->input->post('alamat');
-        $no_tlp = $this->input->post('no_tlp');
-        $email = $this->input->post('email');
-        $tprovinsi = $this->input->post('tujuan_provinsi');
-        $kurir = $this->input->post('kurir');
-        $banktf = $this->input->post('bank_transfer');
-
         $invoice = array(
 
-            'nama_pembeli' => $nama,
-            'alamat' => $address,
-            'no_tlp' => $no_tlp,
-            'email' => $email,
-            'tujuan_provinsi' => $tprovinsi,
-            'kurir' => $kurir,
-            'bank_transfer' => $banktf,
+            'nama_pembeli'       => $this->input->post('nama', true),
+            'alamat'             => $this->input->post('alamat', true),
+            'no_tlp'             => $this->input->post('no_tlp', true),
+            'email'              => $this->input->post('email', true),
+            'tujuan_provinsi'    => $this->input->post('tujuan_provinsi', true),
+            'kurir'              => $this->input->post('kurir', true),
+            'bank_transfer'      => $this->input->post('bank_transfer', true),
         );
         $this->db->insert('invoice', $invoice);
         $id_invoice = $this->db->insert_id();
