@@ -3,94 +3,102 @@
     <div class="row">
         <div class="col-12">
             <!-- Shipping address -->
+            <div class="col-md-12">
+                <div class="form-group">
+                    <div class="col-sm-10">
+                        <?php if (validation_errors()) : ?>
+                            <div class="alert alert-danger" role="alert">
+                                <?= validation_errors(); ?>
+                            </div>
+                        <?php endif; ?>
+                    </div>
+                </div>
+            </div>
+
             <div class="ship-info">
                 <h4>Shipping Info</h4>
-                <?php if (validation_errors()) : ?>
-                    <div class="alert alert-danger" role="alert">
-                        <?= validation_errors(); ?>
-                    </div>
-                <?php endif; ?>
             </div>
+
             <form class="form-horizontal" action="<?= base_url('invoice/proses'); ?>" method="post">
                 <div class="form-group">
-                    <label class="control-label col-sm-2">Name:</label>
+                    <label class="control-label col-sm-2">Name :</label>
                     <div class="col-sm-10">
                         <input type="text" class="form-control" name="nama">
                     </div>
                     <div class=" form-group">
-                        <label class="control-label col-sm-2">Address:</label>
+                        <label class="control-label col-sm-2">Address :</label>
                         <div class="col-sm-10">
                             <input type="text" class="form-control" name="alamat">
                         </div>
                     </div>
                 </div>
                 <div class="form-group">
-                    <label class="control-label col-sm-2">Phone:</label>
+                    <label class="control-label col-sm-2">Phone :</label>
                     <div class="col-sm-10">
-                        <input type="number" class="form-control" name="no_tlp">
+                        <input type="text" class="form-control" name="no_tlp">
                     </div>
                 </div>
                 <div class="form-group">
-                    <label class="control-label col-sm-2">Email:</label>
+                    <label class="control-label col-sm-2">Email :</label>
                     <div class="col-sm-10">
-                        <input type="email" class="form-control" name="email">
+                        <input type="text" class="form-control" name="email">
                     </div>
                 </div>
                 <!--  <div class=" form-group">
-                        <label class="control-label col-sm-2">Weight:</label>
-                        <div class="input-group-append col-sm-10">
-                            <?php foreach ($this->cart->contents() as $items) :
-                                ?>
-                                                                                                                                                                                                                                                                                                                                <input type="number" value="<?= $items['qty'] * $items['berat'] ?>" class=" form-control" id="berat" name="berat">
-                            <?php endforeach; ?>
-                            <div class="input-group-append">
-                                <span class="input-group-text">Gram</span>
+                                <label class="control-label col-sm-2">Weight:</label>
+                                <div class="input-group-append col-sm-10">
+                                    <?php foreach ($this->cart->contents() as $items) :
+                                        ?>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    <input type="number" value="<?= $items['qty'] * $items['berat'] ?>" class=" form-control" id="berat" name="berat">
+                                    <?php endforeach; ?>
+                                    <div class="input-group-append">
+                                        <span class="input-group-text">Gram</span>
 
+                                    </div>
+                                </div>
+                                <span class="col-sm-10">Note: 1Kg Sama Dengan 1000 Gram</span>
                             </div>
-                        </div>
-                        <span class="col-sm-10">Note: 1Kg Sama Dengan 1000 Gram</span>
-                    </div>
-     -->
+             -->
                 <!-- <div class="form-group">
-                        <label class="control-label col-sm-2">Lokasi Asal:</label>
-                        <div class="col-sm-10">
-                            <select class="form-control" id="sel1">
-                                <option value="Bengkulu" name="aprovinsi"> Pilih Provinsi</option>
-                            </select>
-                        </div>
-                    </div>
+                                <label class="control-label col-sm-2">Lokasi Asal:</label>
+                                <div class="col-sm-10">
+                                    <select class="form-control" id="sel1">
+                                        <option value="Bengkulu" name="aprovinsi"> Pilih Provinsi</option>
+                                    </select>
+                                </div>
+                            </div>
 
-                    <div class="form-group">
-                        <div class="col-sm-10">
-                            <select class="form-control" id="sel2" disabled>
-                                <option value="Kota Bengkulu " name="akota"> Pilih Kota</option>
-                            </select>
-                        </div>
-                    </div> -->
+                            <div class="form-group">
+                                <div class="col-sm-10">
+                                    <select class="form-control" id="sel2" disabled>
+                                        <option value="Kota Bengkulu " name="akota"> Pilih Kota</option>
+                                    </select>
+                                </div>
+                            </div> -->
 
 
                 <div class="form-group">
-                    <label class="control-label col-sm-2">Lokasi Tujuan:</label>
+                    <label class="control-label col-sm-2">Location Destination :</label>
                     <div class="col-sm-10">
-                        <select class="form-control" id="sel11" name="tujuan_provinsi">
-                            <option> Pilih Provinsi</option>
+                        <select class="form-control" id="sel11" name="tujuan">
+                            <option value="">Select Province</option>
                         </select>
                     </div>
                 </div>
 
                 <!--    <div class="form-group">
-                        <div class="col-sm-10">
-                            <select class="form-control" id="sel22" name="tujuan_kota" disabled>
-                                <option> Pilih Kota</option>
-                            </select>
-                        </div>
-                    </div> -->
+                                <div class="col-sm-10">
+                                    <select class="form-control" id="sel22" name="tujuan_kota" disabled>
+                                        <option> Pilih Kota</option>
+                                    </select>
+                                </div>
+                            </div> -->
 
                 <div class="form-group">
-                    <label class="control-label col-sm-2">Pilih Kurir:</label>
+                    <label class="control-label col-sm-2">Choose Courier :</label>
                     <div class="col-sm-10">
                         <select class="form-control" id="kurir" name="kurir">
-                            <option value="">Pilih Kurir</option>
+                            <option value="">Choose Courier</option>
                             <option>JNE</option>
                             <option>TIKI</option>
                             <option>POS Indonesia</option>
@@ -98,10 +106,10 @@
                     </div>
                 </div>
                 <div class="form-group">
-                    <label class="control-label col-sm-2">Pilih Bank Transfer:</label>
+                    <label class="control-label col-sm-2">Select Bank Transfer :</label>
                     <div class="col-sm-10">
-                        <select class="form-control" name="bank_transfer" id="sel11">
-                            <option> Pilih Bank</option>
+                        <select class="form-control" name="bank" id="sel11">
+                            <option value=""> Select Bank</option>
                             <option> BCA - 123456789 a/n PT Konakito</option>
                             <option> BNI - 123456789 a/n PT Konakito</option>
                             <option> BRI - 123456789 a/n PT Konakito</option>
@@ -110,12 +118,12 @@
                     </div>
                 </div>
                 <!--    <div class="form-group">
-                        <div class="col-sm-10">
+                                <div class="col-sm-10">
 
-                            <div id="hasil"></div>
+                                    <div id="hasil"></div>
 
-                        </div>
-                    </div> -->
+                                </div>
+                            </div> -->
 
                 <div class="mb-5 footBtn">
                     <a href="<?= base_url('Shop/index_shop'); ?>" class="btn btn-primary orderBtn"><i class="glyphicon glyphicon-menu-right"></i>Back</a>

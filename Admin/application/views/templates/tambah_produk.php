@@ -49,6 +49,7 @@
             <h1 class="h3 mb-4 text-gray-800"><?= $title; ?></h1>
             <div class="container" style="margin-top: 50px">
                 <div class="col-md-12 centered">
+
                     <?php if ($this->session->flashdata('flash')) : ?>
                         <div class="alert alert-success alert-dismissible fade show" role="alert">
                             Data Produk <strong>Berhasil</strong> <?= $this->session->flashdata('flash'); ?>
@@ -57,11 +58,13 @@
                             </button>
                         <? endif; ?>
                     </div>
+
                     <?php if (validation_errors()) : ?>
                         <div class="alert alert-danger" role="alert">
                             <?= validation_errors(); ?>
                         </div>
                     <?php endif; ?>
+
                     <div class="card">
                         <div class="card-body">
                             <form action="<?= base_url('produk/tambahProduk'); ?>" method="post">

@@ -10,9 +10,9 @@ class m_invoice extends CI_Model
             'alamat'             => $this->input->post('alamat', true),
             'no_tlp'             => $this->input->post('no_tlp', true),
             'email'              => $this->input->post('email', true),
-            'tujuan_provinsi'    => $this->input->post('tujuan_provinsi', true),
+            'tujuan_provinsi'    => $this->input->post('tujuan', true),
             'kurir'              => $this->input->post('kurir', true),
-            'bank_transfer'      => $this->input->post('bank_transfer', true),
+            'bank_transfer'      => $this->input->post('bank', true),
         );
         $this->db->insert('invoice', $invoice);
         $id_invoice = $this->db->insert_id();
@@ -27,7 +27,6 @@ class m_invoice extends CI_Model
                 'harga_produk' => $item['price'],
             );
             $this->db->insert('pesanan', $data);
-            redirect('payment/index');
         }
         return TRUE;
     }

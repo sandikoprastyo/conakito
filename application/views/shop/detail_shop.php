@@ -1,5 +1,5 @@
 <body>
-
+    <h1 class="mt-5 text-center"><strong>Detail Shop Coffee Beans Konakito</strong></h1>
     <!-- Page Content -->
     <div class="container">
 
@@ -17,25 +17,10 @@
                         5.0 stars
                     </div>
                 </div>
+                <a href="<?= base_url('shop/index_shop'); ?>" class="btn btn-primary mt-3 mb-3">Back</a>
                 <!-- /.card -->
 
-                <div class="card card-outline-secondary my-4">
-                    <div class="card-header">
-                        Product Reviews
-                    </div>
-                    <div class="card-body">
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis et enim aperiam inventore, similique necessitatibus neque non! Doloribus, modi sapiente laboriosam aperiam fugiat laborum. Sequi mollitia, necessitatibus quae sint natus.</p>
-                        <small class="text-muted">Posted by Anonymous on 3/1/17</small>
-                        <hr>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis et enim aperiam inventore, similique necessitatibus neque non! Doloribus, modi sapiente laboriosam aperiam fugiat laborum. Sequi mollitia, necessitatibus quae sint natus.</p>
-                        <small class="text-muted">Posted by Anonymous on 3/1/17</small>
-                        <hr>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis et enim aperiam inventore, similique necessitatibus neque non! Doloribus, modi sapiente laboriosam aperiam fugiat laborum. Sequi mollitia, necessitatibus quae sint natus.</p>
-                        <small class="text-muted">Posted by Anonymous on 3/1/17</small>
-                        <hr>
-                        <a href="<?= base_url('shop/index_shop'); ?>" class="btn btn-success">Leave a Review</a>
-                    </div>
-                </div>
+
                 <!-- /.card -->
 
             </div>
