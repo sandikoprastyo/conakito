@@ -130,7 +130,8 @@
                 </div>
                 <div class="col-md-12">
                     <div class="mb-5 footBtn">
-                        <button type="submit" class="btn btn-success orderBtn">SEND<i class="glyphicon glyphicon-menu-right"></i></button>
+                        <a href="<?= base_url('Laporanpdf'); ?>" class="btn btn-info orderBtn">Print Invoice</a>
+                        <button type="submit" class="btn btn-success orderBtn">SEND</button>
                     </div>
                 </div>
         </div>
