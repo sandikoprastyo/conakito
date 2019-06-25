@@ -180,7 +180,7 @@
                                         </div>
                                         <div class="col-md-6">
                                             <span class="form-label">Email</span>
-                                            <input class="form-control" name="email" id="email" type="text" required>
+                                            <input class="form-control" name="email" id="email" type="email" required>
                                         </div>
                                     </div>
                                 </div>
@@ -188,12 +188,12 @@
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <span class="form-label">No Telpon</span>
-                                            <input class="form-control" name="no_tlp" id="telpon" type="text" required>
+                                            <input class="form-control" name="no_tlp" id="telpon" type="number" required>
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <span class="form-label">Number of guests</span>
-                                        <input class="form-control" name="jmlh_tamu" id="tamu" type="text" required>
+                                        <input class="form-control" name="jmlh_tamu" id="tamu" type="number" required>
                                     </div>
                                 </div>
 

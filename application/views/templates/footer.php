@@ -26,13 +26,13 @@
 
                 <ul class="list-unstyled">
                     <li>
-                        <p><i class="fa fa-map-marker"></i><a href="https://www.google.co.id/maps/place/Konakito+Cafe+Bengkulu/@-3.7870846,102.2516325,18z/data=!4m12!1m6!3m5!1s0x2e36afd7adc0dba5:0x7c22f247ca7fc84c!2sKonakito+Cafe+Bengkulu!8m2!3d-3.7854927!4d102.252375!3m4!1s0x2e36afd7adc0dba5:0x7c22f247ca7fc84c!8m2!3d-3.7854927!4d102.252375" target="_blank">Jl. Bencoolen, Kebun Keling, Tlk. Segara, Kota Bengkulu, Bengkulu 38115</a></p>
+                        <p><i class="fa fa-map-marker"></i><a href="https://www.google.co.id/maps/place/Konakito+Cafe+Bengkulu/@-3.7870846,102.2516325,18z/data=!4m12!1m6!3m5!1s0x2e36afd7adc0dba5:0x7c22f247ca7fc84c!2sKonakito+Cafe+Bengkulu!8m2!3d-3.7854927!4d102.252375!3m4!1s0x2e36afd7adc0dba5:0x7c22f247ca7fc84c!8m2!3d-3.7854927!4d102.252375" target="_blank"> Jl. Bencoolen, Kebun Keling, Tlk. Segara, Kota Bengkulu, Bengkulu 38115</a></p>
                     </li>
                     <li>
-                        <p><i class="fa fa-phone"></i>Phone: 0816-3238-6390</p>
+                        <p><i class="fa fa-phone"></i> Phone: 0816-3238-6390</p>
                     </li>
                     <li>
-                        <p><i class="fa fa-envelope-o"></i>support@konakito.com</p>
+                        <p><i class="fa fa-envelope"></i> support@konakito.com</p>
                     </li>
                 </ul>
 

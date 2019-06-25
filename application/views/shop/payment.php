@@ -57,88 +57,96 @@
                 </tfoot>
             </table>
         </div>
-        <div class="col-md-12">
-            <div class="form-group">
-                <div class="col-md-6">
-                    <?php if (validation_errors()) : ?>
-                        <div class="alert alert-danger" role="alert">
-                            <?= validation_errors(); ?>
-                        </div>
-                    <?php endif; ?>
-                </div>
-            </div>
 
-
-            <form class="payment" method="post" action="<?= base_url('payment/proses'); ?>">
+        <div class="container">
+            <div class="row">
                 <div class="col-md-12">
                     <div class="form-group">
-                        <label class="control-label col-sm-2">Sending Bank :</label>
                         <div class="col-md-6">
-                            <select class="form-control" name="bank_pengirim">
-                                <option value="">Select bank</option>
-                                <option value="MANDIRI"> MANDIRI </option>
-                                <option value="BCA"> BCA </option>
-                                <option value="BRI"> BRI </option>
-                                <option value="BNI"> BNI </option>
-                            </select>
+                            <?php if (validation_errors()) : ?>
+                                <div class="alert alert-danger" role="alert">
+                                    <?= validation_errors(); ?>
+                                </div>
+                            <?php endif; ?>
                         </div>
                     </div>
-                </div>
 
-                <div class="col-md-12">
-                    <div class="form-group">
-                        <label class="control-label col-sm-6">Sender Account Number :</label>
-                        <div class="col-sm-6">
-                            <input type="text" class="form-control" name="norek_pengirim">
-                        </div>
-                    </div>
-                </div>
 
-                <div class="col-md-12">
-                    <div class="form-group">
-                        <label class="control-label col-sm-2">Name of the sender :</label>
-                        <div class="col-sm-6">
-                            <input type="text" class="form-control" name="nama_pengirim">
+                    <form class="payment" method="post" action="<?= base_url('payment/proses'); ?>">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label class="control-label col-sm-2">Sending Bank :</label>
+                                <div class="col-md-6">
+                                    <select class="form-control" name="bank_pengirim">
+                                        <option value="">Select bank</option>
+                                        <option value="MANDIRI"> MANDIRI </option>
+                                        <option value="BCA"> BCA </option>
+                                        <option value="BRI"> BRI </option>
+                                        <option value="BNI"> BNI </option>
+                                    </select>
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                </div>
-                <div class="col-md-12">
-                    <div class="form-group">
-                        <label class="control-label col-sm-2">Sender Date :</label>
-                        <div class="col-sm-6">
-                            <input type="date" class="form-control" name="tanggal_pengirim">
+
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label class="control-label col-sm-6">Sender Account Number :</label>
+                                <div class="col-sm-6">
+                                    <input type="text" class="form-control" name="norek_pengirim">
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                </div>
-                <div class="col-md-12">
-                    <div class="form-group">
-                        <label class="control-label col-sm-2">Transfer Amount :</label>
-                        <div class="col-sm-6">
-                            <?php if ($this->cart->total_items() > 0) { ?>
-                                <input type="text" class="form-control" name="jumlah_transfer" value="<?= number_format($this->cart->total(), 0, ',', '.'); ?>">
-                            <?php } ?>
+
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label class="control-label col-sm-2">Name of the sender :</label>
+                                <div class="col-sm-6">
+                                    <input type="text" class="form-control" name="nama_pengirim">
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                </div>
-                <div class="col-md-12">
-                    <div class="form-group">
-                        <label class="control-label col-sm-6">Upload Payment Proof :</label>
-                        <div class="col-sm-6">
-                            <input type="file" class="form-control" name="bukti_pembayaran">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label class="control-label col-sm-2">Sender Date :</label>
+                                <div class="col-sm-6">
+                                    <input type="date" class="form-control" name="tanggal_pengirim">
+                                </div>
+                            </div>
                         </div>
-                    </div>
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label class="control-label col-sm-2">Transfer Amount :</label>
+                                <div class="col-sm-6">
+                                    <?php if ($this->cart->total_items() > 0) { ?>
+                                        <input type="text" class="form-control" name="jumlah_transfer" value="<?= number_format($this->cart->total(), 0, ',', '.'); ?>">
+                                    <?php } ?>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label class="control-label col-sm-6">Upload Payment Proof :</label>
+                                <div class="col-sm-6">
+                                    <input type="file" class="form-control" name="bukti_pembayaran">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="mb-5 footBtn">
+                                <a href="<?= base_url('Laporanpdf'); ?>" class="btn btn-info orderBtn">Print Invoice</a>
+                                <button type="submit" class="btn btn-success orderBtn">SEND</button>
+                            </div>
+                        </div>
                 </div>
-                <div class="col-md-12">
-                    <div class="mb-5 footBtn">
-                        <a href="<?= base_url('Laporanpdf'); ?>" class="btn btn-info orderBtn">Print Invoice</a>
-                        <button type="submit" class="btn btn-success orderBtn">SEND</button>
-                    </div>
-                </div>
+                </from>
+
+            </div>
         </div>
     </div>
-    </from>
 </div>
 </div>
+
+
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 <script>
     function sweet() {
