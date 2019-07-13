@@ -1,11 +1,11 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
 
-class m_reservation extends CI_Model
+class m_contact extends CI_Model
 {
     function getAll()
     {
-        return $this->db->get('reservation');
+        return $this->db->get('contact');
     }
 
     function delete($where, $table)

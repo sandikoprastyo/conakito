@@ -77,12 +77,12 @@
             <hr class="sidebar-divider">
             <!-- Heading -->
             <div class="sidebar-heading">
-                Reservation
+                Contact
             </div>
             <li class="nav-item">
-                <a class="nav-link" href="<?= base_url('admin/dataReservation'); ?>">
+                <a class="nav-link" href="<?= base_url('admin/dataContact'); ?>">
                     <i class="fas fa-info-circle"></i>
-                    <span>Data Reservations</span></a>
+                    <span>Data Contact</span></a>
             </li>
             <!-- Divider -->
 

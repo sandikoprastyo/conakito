@@ -6,7 +6,7 @@ class admin extends CI_Controller
     public function __construct()
     {
         parent::__construct();
-        $this->load->model('M_reservation');
+        $this->load->model('M_contact');
     }
 
     public function index()
@@ -22,15 +22,15 @@ class admin extends CI_Controller
     }
 
 
-    public function dataReservation()
+    public function dataContact()
     {
-        $data['title'] = 'Data Reservation';
+        $data['title'] = 'Data Contact';
         $data['admin'] = $this->db->get_where('admin', ['email' =>
         $this->session->userdata('email')])->row_array();
-        $data['reservation'] = $this->M_reservation->getAll()->result();
+        $data['contact'] = $this->M_contact->getAll()->result();
         $this->load->view('templates/auth_header', $data);
         $this->load->view('templates/nav');
-        $this->load->view('admin/reservation', $data);
+        $this->load->view('admin/contact', $data);
         $this->load->view('templates/auth_footer');
     }
 
@@ -38,17 +38,8 @@ class admin extends CI_Controller
     public function hapus($id)
     {
         $where = array('id' => $id);
-        $this->M_reservation->delete($where, 'reservation');
+        $this->M_contact->delete($where, 'contact');
         $this->session->set_flashdata('flash', 'Dihapus!');
-        redirect('admin/dataReservation');
-    }
-
-
-
-    public function edit($id)
-    {
-        $where = array('id' => $id);
-        $data['reservation'] = $this->M_reservation->edit_data($where, 'reservation')->result();
-        $this->load->view('v_edit', $data);
+        redirect('admin/dataContact');
     }
 }

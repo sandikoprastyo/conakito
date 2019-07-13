@@ -26,7 +26,7 @@
           </a>
           <!-- Dropdown - User Information -->
           <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
-            <a class="dropdown-item" href="#">
+            <a class="dropdown-item" href="<?= base_url('admin/index'); ?>">
               <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
               Profile
             </a>
@@ -64,32 +64,24 @@
                 <th>Nama</th>
                 <th>Email</th>
                 <th>No Telpon</th>
-                <th>Jumlah Tamu</th>
-                <th>Tanggal Reservation</th>
-                <th>Jam Reservation</th>
-                <th>Type Reservation</th>
-                <th>Request Reservation</th>
+                <th>Pertanyaan</th>
                 <th>Action</th>
               </tr>
             </thead>
             <tbody>
               <?php
               $no = 1;
-              foreach ($reservation as $rs) {
+              foreach ($contact as $rs) {
                 ?>
                 <tr>
                   <td><?= $no++ ?></td>
                   <td><?= $rs->nama ?></td>
                   <td><?= $rs->email ?></td>
                   <td><?= $rs->no_tlp ?></td>
-                  <td><?= $rs->jmlh_tamu ?></td>
-                  <td><?= $rs->tanggal_booking ?></td>
-                  <td><?= $rs->time_booking ?></td>
-                  <td><?= $rs->type_reservation ?></td>
-                  <td><?= $rs->req_deskripsi ?></td>
+                  <td><?= $rs->pertanyaan ?></td>
                   <td class="text-center">
-                    <!--  <?= anchor('admin/detail/' . $rs->id, 'Detail', ['class' => 'btn btn-primary', 'id' => 'tombo1']); ?> -->
                     <?= anchor('admin/hapus/' . $rs->id, 'Hapus', ['onclick' => "return confirm('Anda Yakin ?')", 'class' => 'btn btn-danger',  'id' => 'tombo1']); ?>
+                    <a class="btn btn-primary" target="_blank" href="https://mail.google.com/mail/u/0/#inbox">Email</a>
                   </td>
                 </tr>
               <?php } ?>

@@ -42,7 +42,7 @@
                     <a class="nav-link" href="<?= base_url('Event/index_event'); ?>">Event</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="<?= base_url('Reservation/index_reservation'); ?>">Reservation</a>
+                    <a class="nav-link" href="<?= base_url('Contact/index_contact'); ?>">Contact</a>
                 </li>
             </ul>
             <ul class="nav">

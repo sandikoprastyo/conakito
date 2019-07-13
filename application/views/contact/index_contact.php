@@ -161,7 +161,7 @@
                 <div class="row">
                     <div class="col-md-6 col-md-push-5">
                         <div class="booking-cta">
-                            <h1>Make your reservation</h1>
+                            <h1>ANY QUESTION? CONTACT US</h1>
                             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi facere, soluta magnam consectetur molestias itaque
                                 ad sint fugit architecto incidunt iste culpa perspiciatis possimus voluptates aliquid consequuntur cumque quasi.
                                 Perspiciatis.
@@ -171,73 +171,36 @@
                     <div class="col-md-5 col-md-pull-7">
                         <div class="booking-form">
                             <?= $this->session->flashdata('message'); ?>
-                            <form class="booking" method="post" action="<?= base_url('reservation/send'); ?>">
+                            <form class="booking" method="post" action="<?= base_url('Contact/send'); ?>">
                                 <div class="form-group">
-                                    <div class="row">
-                                        <div class="col-md-6">
-                                            <span class="form-label">Nama</span>
-                                            <input class="form-control" name="nama" id="name" type="text" required>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <span class="form-label">Email</span>
-                                            <input class="form-control" name="email" id="email" type="email" required>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <div class="form-group">
-                                            <span class="form-label">No Telpon</span>
-                                            <input class="form-control" name="no_tlp" id="telpon" type="number" required>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <span class="form-label">Number of guests</span>
-                                        <input class="form-control" name="jmlh_tamu" id="tamu" type="number" required>
-                                    </div>
-                                </div>
 
-                                <div class="row">
-                                    <div class="col-sm-6">
-                                        <div class="form-group">
-                                            <span class="form-label">Date</span>
-                                            <input class="form-control" name="tanggal_booking" id="date" type="date" required>
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-6">
-                                        <div class="form-group">
-                                            <span class="form-label">Time</span>
-                                            <input class="form-control" name="time_booking" id="time" type="time" required>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row">
                                     <div class="col-md-12">
-                                        <div class="form-group">
-                                            <span class="form-label">Reservation Type</span>
-                                            <select class="form-control" name="type_reservation" id="booking" required>
-                                                <option>Dinner</option>
-                                                <option>VIP</option>
-                                                <option>Brithday/Aniversary</option>
-                                                <option>Meeting</option>
-                                                <option>Holiday</option>
-                                                <option>Corporate</option>
-                                                <option>Wedding</option>
-                                                <option>Private</option>
-                                                <option>Other</option>
-                                            </select>
-                                            <span class="select-arrow"></span>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-12">
-                                        <div class="form-group">
-                                            <span class="form-label">If Other above, please specify?</span>
-                                            <textarea class="form-control" name="req_deskripsi" id="desk" type="textarea"></textarea>
-                                            <span class="select-arrow"></span>
-                                        </div>
+                                        <span class="form-label">Name</span>
+                                        <input class="form-control" name="nama" id="name" type="text" required>
                                     </div>
 
                                 </div>
+                                <div class="form-group">
+                                    <div class="col-md-12">
+                                        <span class="form-label">Email</span>
+                                        <input class="form-control" name="email" id="email" type="email" required>
+                                    </div>
+                                </div>
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <span class="form-label">Phone</span>
+                                        <input class="form-control" name="no_tlp" id="telpon" type="number" required>
+                                    </div>
+                                </div>
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <span class="form-label">Question</span>
+                                        <textarea class="form-control" name="question" id="desk" type="textarea"></textarea>
+                                        <span class="select-arrow"></span>
+                                    </div>
+                                </div>
+
+
                                 <div class="form-btn">
                                     <button type="submit" class="submit-btn">Send</button>
                                 </div>

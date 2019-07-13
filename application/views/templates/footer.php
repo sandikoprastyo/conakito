@@ -60,7 +60,7 @@
                         <a href="<?= base_url('Event/index_event'); ?>">Event</a>
                     </li>
                     <li>
-                        <a href="<?= base_url('Reservation/index_reservation'); ?>">Reservation</a>
+                        <a href="<?= base_url('Contact/index_contact'); ?>">Contact</a>
                     </li>
                 </ul>
 

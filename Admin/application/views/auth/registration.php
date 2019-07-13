@@ -18,10 +18,10 @@
                             </div>
                             <div class="form-group row">
                                 <div class="col-sm-6 mb-3 mb-sm-0">
-                                    <input type="password1" class="form-control form-control-user" id="password1" placeholder="Password" name="password1"><?= form_error('password1', '<small class="text-danger pl-3">', '</small>'); ?>
+                                    <input type="password1" class="form-control form-control-user" id="password1" placeholder="Password" type="password" name="password1"><?= form_error('password1', '<small class="text-danger pl-3">', '</small>'); ?>
                                 </div>
                                 <div class="col-sm-6">
-                                    <input type="password1" class="form-control form-control-user" id="password2" placeholder="Repeat Password" name="password2">
+                                    <input type="password1" class="form-control form-control-user" id="password2" placeholder="Repeat Password" type="password" name="password2">
                                 </div>
                             </div>
                             <button type="submit" class="btn btn-primary btn-user btn-block">
@@ -29,9 +29,9 @@
                             </button>
                         </form>
                         <hr>
-                        <div class="text-center">
+                        <!--  <div class="text-center">
                             <a class="small" href="forgot-password.html">Forgot Password?</a>
-                        </div>
+                        </div> -->
                         <div class="text-center">
                             <a class="small" href="<?= base_url('auth'); ?> ">Already have an account? Login!</a>
                         </div>

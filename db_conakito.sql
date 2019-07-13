@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Jun 12, 2019 at 08:02 PM
+-- Generation Time: Jul 13, 2019 at 09:59 AM
 -- Server version: 10.1.38-MariaDB
 -- PHP Version: 7.3.4
 
@@ -43,7 +43,28 @@ CREATE TABLE `admin` (
 --
 
 INSERT INTO `admin` (`id`, `nama`, `email`, `image`, `password`, `is_active`, `data_created`) VALUES
-(1, 'guns', 'gunswinger0@gmail.com', 'default.jpg', '$2y$10$ZYWU7vbm5ipKGHyJN872hedU.RWK2J1hsuOLMZ7YM26lZ/VoJzUvW', 1, 1555846267);
+(6, 'admin', 'admin@gmail.com', 'default.jpg', '$2y$10$5rtSMOWvJDboy9rkePGOEuUv/LQPQw/.TWUH7354Civ2fwJOlIA6S', 1, 1562568324);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `contact`
+--
+
+CREATE TABLE `contact` (
+  `id` int(11) NOT NULL,
+  `nama` varchar(25) NOT NULL,
+  `email` varchar(25) NOT NULL,
+  `no_tlp` varchar(12) NOT NULL,
+  `pertanyaan` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `contact`
+--
+
+INSERT INTO `contact` (`id`, `nama`, `email`, `no_tlp`, `pertanyaan`) VALUES
+(12, 'Tes', 'tes@gmail.com', '111111111111', 'Tes ini pertanyaan');
 
 -- --------------------------------------------------------
 
@@ -56,7 +77,7 @@ CREATE TABLE `event` (
   `nama_event` varchar(20) NOT NULL,
   `deskripsi` varchar(50) NOT NULL,
   `tanggal` date NOT NULL,
-  `foto_event` varchar(200) NOT NULL
+  `foto_event` varchar(15) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -81,9 +102,9 @@ CREATE TABLE `invoice` (
   `alamat` varchar(50) NOT NULL,
   `no_tlp` varchar(12) NOT NULL,
   `email` varchar(20) NOT NULL,
-  `tujuan_provinsi` varchar(50) NOT NULL,
-  `kurir` varchar(20) NOT NULL,
-  `bank_transfer` varchar(50) NOT NULL
+  `tujuan_provinsi` varchar(35) NOT NULL,
+  `kurir` varchar(15) NOT NULL,
+  `bank_transfer` varchar(35) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -91,7 +112,7 @@ CREATE TABLE `invoice` (
 --
 
 INSERT INTO `invoice` (`id_invoice`, `nama_pembeli`, `alamat`, `no_tlp`, `email`, `tujuan_provinsi`, `kurir`, `bank_transfer`) VALUES
-(63, 'guns', 'Jl Pemuda.Komp Kemenkumham blok D2/5 Rt2/13', '081285528255', 'gunswinger0@gmail.co', '19 Maluku', 'JNE', 'MANDIRI - 123456789 a/n PT Konakito');
+(104, 'pascal', 'Jl Pemuda.Komp Kemenkumham blok D2/5 Rt2/13', '081285528255', 'gunswinger0@gmail.co', '4 Bengkulu', 'JNE', 'BCA - 123456789 a/n PT Konakito');
 
 -- --------------------------------------------------------
 
@@ -105,8 +126,8 @@ CREATE TABLE `pembayaran` (
   `norek_pengirim` varchar(20) NOT NULL,
   `nama_pengirim` varchar(25) NOT NULL,
   `tanggal_pengirim` date NOT NULL,
-  `jumlah_transfer` varchar(20) NOT NULL,
-  `bukti_pembayaran` varchar(50) NOT NULL
+  `jumlah_transfer` varchar(10) NOT NULL,
+  `bukti_pembayaran` varchar(15) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -114,12 +135,7 @@ CREATE TABLE `pembayaran` (
 --
 
 INSERT INTO `pembayaran` (`id_pembayaran`, `bank_pengirim`, `norek_pengirim`, `nama_pengirim`, `tanggal_pengirim`, `jumlah_transfer`, `bukti_pembayaran`) VALUES
-(43, 'MANDIRI', '4124124', 'dita', '2019-06-30', '150.000', '2.jpg'),
-(45, '', '', '', '0000-00-00', '750.000', ''),
-(46, 'BRI', '231231231', 'ddasdasdsasdad', '2019-06-13', '150.000', '2.jpg'),
-(47, 'BCA', '111111111111111', 'dita', '2019-06-13', '180.000', '2.jpg'),
-(48, '', '', '', '0000-00-00', '300.000', ''),
-(49, 'MANDIRI', '21312313', 'retdtttty', '2019-06-13', '150.000', '2.jpg');
+(68, 'MANDIRI', '2121221', '12324124124', '2019-06-18', '150.000', '1.jpg');
 
 -- --------------------------------------------------------
 
@@ -142,18 +158,18 @@ CREATE TABLE `pesanan` (
 --
 
 INSERT INTO `pesanan` (`id_pesanan`, `id_invoice`, `id_produk`, `nama_produk`, `jumlah_produk`, `berat_produk`, `harga_produk`) VALUES
-(125, 52, 2, 'Robusa Semang', 1, 1000, 150000),
-(126, 53, 4, 'Robusta Semang', 1, 1000, 600000),
-(127, 54, 2, 'Robusa Semang', 1, 1000, 150000),
-(128, 55, 2, 'Robusa Semang', 1, 1000, 150000),
-(129, 56, 2, 'Robusa Semang', 1, 1000, 150000),
-(130, 57, 2, 'Robusa Semang', 1, 1000, 150000),
-(131, 58, 2, 'Robusa Semang', 1, 1000, 150000),
-(132, 59, 2, 'Robusa Semang', 1, 1000, 150000),
-(133, 60, 2, 'Robusa Semang', 1, 1000, 150000),
-(134, 61, 10, 'Robusta Super Grade 1', 1, 1000, 180000),
-(135, 62, 3, 'Robusta Semang', 1, 500, 300000),
-(136, 63, 2, 'Robusa Semang', 1, 1000, 150000);
+(165, 95, 4, 'Robusta Semang', 1, 1000, 600000),
+(166, 96, 2, 'Robusa Semang', 2, 1000, 150000),
+(167, 97, 2, 'Robusa Semang', 1, 1000, 150000),
+(168, 98, 2, 'Robusa Semang', 1, 1000, 150000),
+(169, 99, 6, 'Robusta Lanang', 1, 250, 75000),
+(170, 100, 2, 'Robusa Semang', 1, 1000, 150000),
+(171, 101, 3, 'Robusta Semang', 1, 500, 300000),
+(172, 102, 3, 'Robusta Semang', 1, 500, 300000),
+(173, 103, 2, 'Robusa Semang', 1, 1000, 150000),
+(174, 102, 2, 'Robusa Semang', 1, 1000, 150000),
+(175, 103, 2, 'Robusa Semang', 1, 1000, 150000),
+(176, 104, 5, 'Robusta Lanang', 1, 1000, 40000);
 
 -- --------------------------------------------------------
 
@@ -163,10 +179,10 @@ INSERT INTO `pesanan` (`id_pesanan`, `id_invoice`, `id_produk`, `nama_produk`, `
 
 CREATE TABLE `produk` (
   `id_produk` int(10) NOT NULL,
-  `nama_produk` varchar(50) NOT NULL,
+  `nama_produk` varchar(25) NOT NULL,
   `berat_produk` varchar(10) NOT NULL,
   `harga_produk` int(10) NOT NULL,
-  `foto_produk` varchar(200) NOT NULL
+  `foto_produk` varchar(15) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -196,33 +212,7 @@ INSERT INTO `produk` (`id_produk`, `nama_produk`, `berat_produk`, `harga_produk`
 (21, 'Arabica Luwak', '500', 400000, 's7.jpg'),
 (22, 'Arabica Luwak', '1000', 750000, 's7.jpg'),
 (23, 'Robusa Semang', '1000', 75000, 'sa.jpg'),
-(24, 'guns', '1000', 75000, 'lunch.jpg'),
-(25, 'guns', '1000', 200000, 'lunch.jpg');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `reservation`
---
-
-CREATE TABLE `reservation` (
-  `id` int(11) NOT NULL,
-  `nama` varchar(150) NOT NULL,
-  `email` varchar(150) NOT NULL,
-  `no_tlp` varchar(12) NOT NULL,
-  `jmlh_tamu` int(10) NOT NULL,
-  `tanggal_booking` date NOT NULL,
-  `time_booking` time NOT NULL,
-  `type_reservation` varchar(20) NOT NULL,
-  `req_deskripsi` varchar(25) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `reservation`
---
-
-INSERT INTO `reservation` (`id`, `nama`, `email`, `no_tlp`, `jmlh_tamu`, `tanggal_booking`, `time_booking`, `type_reservation`, `req_deskripsi`) VALUES
-(1, 'guns', 'gunswinger0@gmail.com', '12344144', 10, '2019-06-06', '01:01:00', 'Meeting', '');
+(24, 'guns', '1000', 75000, 'lunch.jpg');
 
 --
 -- Indexes for dumped tables
@@ -232,6 +222,12 @@ INSERT INTO `reservation` (`id`, `nama`, `email`, `no_tlp`, `jmlh_tamu`, `tangga
 -- Indexes for table `admin`
 --
 ALTER TABLE `admin`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `contact`
+--
+ALTER TABLE `contact`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -267,12 +263,6 @@ ALTER TABLE `produk`
   ADD PRIMARY KEY (`id_produk`);
 
 --
--- Indexes for table `reservation`
---
-ALTER TABLE `reservation`
-  ADD PRIMARY KEY (`id`);
-
---
 -- AUTO_INCREMENT for dumped tables
 --
 
@@ -280,7 +270,13 @@ ALTER TABLE `reservation`
 -- AUTO_INCREMENT for table `admin`
 --
 ALTER TABLE `admin`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
+-- AUTO_INCREMENT for table `contact`
+--
+ALTER TABLE `contact`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT for table `event`
@@ -292,31 +288,25 @@ ALTER TABLE `event`
 -- AUTO_INCREMENT for table `invoice`
 --
 ALTER TABLE `invoice`
-  MODIFY `id_invoice` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=64;
+  MODIFY `id_invoice` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=105;
 
 --
 -- AUTO_INCREMENT for table `pembayaran`
 --
 ALTER TABLE `pembayaran`
-  MODIFY `id_pembayaran` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=50;
+  MODIFY `id_pembayaran` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=69;
 
 --
 -- AUTO_INCREMENT for table `pesanan`
 --
 ALTER TABLE `pesanan`
-  MODIFY `id_pesanan` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=137;
+  MODIFY `id_pesanan` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=177;
 
 --
 -- AUTO_INCREMENT for table `produk`
 --
 ALTER TABLE `produk`
-  MODIFY `id_produk` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
-
---
--- AUTO_INCREMENT for table `reservation`
---
-ALTER TABLE `reservation`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_produk` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 
 --
 -- Constraints for dumped tables
