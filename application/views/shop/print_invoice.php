@@ -50,18 +50,18 @@
 <table>
 	<thead>
 		<tr>
-			<th>Buyer Name</th>
-			<th>Address</th>
-			<th>Destination Province</th>
-			<th>Courier</th>
-			<th>Bank Transfer</th>
-			<th>Product Name</th>
-			<th>Product Total</th>
-			<th>Produk Price</th>
+			<th width="80px">Buyer Name</th>
+			<th width="150px">Address</th>
+			<th width="50px">Destination Province</th>
+			<th width="30px">Courier</th>
+			<th width="50px">Bank Transfer</th>
+			<th width="50px">Product Name</th>
+			<th width="50px">Produk Price</th>
 		</tr>
 	</thead>
 	<tbody>
-		<?php foreach ($sql as $ps) { ?>
+		<?php foreach ($sql as $ps)
+			foreach ($this->cart->contents() as $items) { ?>
 			<tr>
 				<td><?= $ps->nama_pembeli ?></td>
 				<td><?= $ps->alamat ?></td>
@@ -69,11 +69,17 @@
 				<td><?= $ps->kurir ?></td>
 				<td><?= $ps->bank_transfer ?></td>
 				<td><?= $ps->nama_produk ?></td>
-				<td><?= $ps->jumlah_produk ?></td>
-				<td><?= $ps->harga_produk ?></td>
+				<td><?= number_format($items['price'], 0, ',', '.') ?></td>
+				<!-- <td><?= number_format($this->cart->total(), 0, ',', '.'); ?></td> -->
 			</tr>
-		</tbody>
-	<? } ?>
+		<? } ?>
+	</tbody>
+	<tfoot>
+		<tr>
+			<td align="right" colspan="6">Total Price</td>
+			<td align="right"><?= number_format($this->cart->total(), 0, ',', '.'); ?></td>
+		</tr>
+	</tfoot>
 </table>
 </body>
 
