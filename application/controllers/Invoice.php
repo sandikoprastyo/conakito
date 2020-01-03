@@ -3,7 +3,7 @@
 class invoice extends CI_Controller
 {
 
-    public $api_key = 'a75caa11dacbe32e7d1e939a3e7f3f07';
+    public $api_key = 'aa51a0658abcaa751620844005fde0c2';
     public function __construct()
     {
         parent::__construct();

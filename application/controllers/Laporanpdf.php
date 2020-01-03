@@ -23,3 +23,4 @@ class Laporanpdf extends CI_Controller
         $dompdf->stream('invoice.pdf', array("Attacment" => false));
     }
 }
+

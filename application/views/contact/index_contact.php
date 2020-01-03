@@ -195,7 +195,7 @@
                                 <div class="col-md-12">
                                     <div class="form-group">
                                         <span class="form-label">Question</span>
-                                        <textarea class="form-control" name="question" id="desk" type="textarea"></textarea>
+                                        <textarea class="form-control" name="question" id="desk" type="textarea" style="resize:none;width:373px;height:100px;"></textarea>
                                         <span class="select-arrow"></span>
                                     </div>
                                 </div>
